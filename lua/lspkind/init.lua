@@ -140,7 +140,7 @@ local function opt_preset(opts)
   return preset
 end
 
-function lspkind.init(opts)
+function lspkind.setup(opts)
   if opts ~= nil and opts["with_text"] ~= nil then
     vim.api.nvim_command("echoerr 'DEPRECATED replaced by mode option.'")
   end
@@ -182,7 +182,7 @@ function lspkind.cmp_format(opts)
     opts = {}
   end
   if opts.preset or opts.symbol_map then
-    lspkind.init(opts)
+    lspkind.setup(opts)
   end
 
   return function(entry, vim_item)
